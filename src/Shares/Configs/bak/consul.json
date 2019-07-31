@@ -1,0 +1,6 @@
+{
+  "ConnectionString": "${Register_Conn}|192.168.31.115:18500", // "",
+  "SessionTimeout": "${Register_SessionTimeout}|50",
+  "RoutePath": "${Register_RoutePath}",
+  "ReloadOnChange": true
+}

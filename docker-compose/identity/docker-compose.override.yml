@@ -1,0 +1,51 @@
+version: '3.7'
+
+services:
+  hlservice.basicdata:
+    environment:
+      Register_Conn: ${REGISTER_CONN:-consul:8500}
+      Register_SessionTimeout: ${REGISTER_SESSION_TIMEOUT:-50}
+      UseEngineParts: ${NORMAL_SERVER_ENGINE}
+      EventBusConnection: ${RABBITMQ_CONNECTION:-rabbitmq}
+      EventBusUserName:  ${RABBITMQ_USERNAME:-rabbitmq}
+      EventBusPassword:  ${RABBITMQ_PASSWORD:-rabbitmq}
+      EventBusPort: ${RABBITMQ_PORT:-5672}
+      DbType: ${BASICDATA_DB_TYPE:-MySql}
+      ConnectionString: ${BASICDATA_DB_CONN}
+      SwaggerTitle: "hlservice.basicdata"
+      SwaggerDes: "基础信息微服务组件API文档"
+      SupportName: "LiuHongliang"
+      SupportEmail: 1029765111@qq.com
+      EnableAuthorization: ${ENABLE_AUTHORIZATION:-false}
+      SecretKey: ${SECRETKEY}
+      AuthorizationRoutePath: ${AUTHORIZATION_ROUTE}
+      AuthorizationServiceKey: ${AUTHORIZATION_SERVICEKEY}
+    ports:
+      - "18087:8080"
+  hlservice.identity:
+    environment:
+      Register_Conn: ${REGISTER_CONN:-consul:8500}
+      Register_SessionTimeout: ${REGISTER_SESSION_TIMEOUT:-50}
+      UseEngineParts: ${NORMAL_SERVER_ENGINE}
+      EventBusConnection: ${RABBITMQ_CONNECTION:-rabbitmq}
+      EventBusUserName:  ${RABBITMQ_USERNAME:-rabbitmq}
+      EventBusPassword:  ${RABBITMQ_PASSWORD:-rabbitmq}
+      EventBusPort: ${RABBITMQ_PORT:-5672}
+      DbType: ${IDENTITY_DB_TYPE:-MySql}
+      ConnectionString: ${IDENTITY_DB_CONN}
+      SwaggerTitle: "hlservice.identity"
+      SwaggerDes: "微服务集群身份认证与授权组件API文档"
+      SupportName: "LiuHongliang"
+      SupportEmail: 1029765111@qq.com
+      EnableAuthorization: ${ENABLE_AUTHORIZATION:-false}
+      SecretKey: ${SECRETKEY}
+      AuthorizationRoutePath: ${AUTHORIZATION_ROUTE}
+      AuthorizationServiceKey: ${AUTHORIZATION_SERVICEKEY}
+    ports:
+      - "18081:8080"
+
+  hlservice.gateway:
+    environment:
+      Register_Conn: ${REGISTER_CONN:-consul:8500}
+    ports:
+      - "18060:80"

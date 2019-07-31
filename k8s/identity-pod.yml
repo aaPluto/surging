@@ -1,0 +1,36 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: identity1
+  namespace: hl
+spec:
+  containers:
+  - name: identity
+    image: liuhl/identity:v0.0.1
+    imagePullPolicy: Always
+    env:
+    - name: Register_Conn
+      value: "consul:8500"
+    - name: Register_SessionTimeout
+      value: "50"
+    - name: UseEngineParts
+      value: "DotNettyModule;Log4netModule;ConsulModule;EventBusRabbitMQModule;CachingModule;AutoMapperModule;KestrelHttpModule;"
+    - name: EventBusConnection
+      value: "rabbitmq"
+    - name: EventBusUserName
+      value: "rabbitmq"
+    - name: EventBusPassword
+      value: "rabbitmq"
+    - name: EventBusPort
+      value: "5672"
+    - name: Environment
+      value: "Development"
+    - name: SwaggerTitle
+      value: "身份认证微服务组件"
+    - name: SwaggerDes
+      value: "微服务集群身份认证与授权组件"
+    ports:
+    - containerPort: 8080
+      name: http-port
+    - containerPort: 100
+      name: rpc-port

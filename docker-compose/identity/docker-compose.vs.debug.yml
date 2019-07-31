@@ -1,0 +1,18 @@
+version: '3.7'
+
+services: 
+  hlservice.basicdata:
+    environment:
+      LogConfigPath: /app/configs/log4net.config
+    volumes:
+      - ../../src/Shares/Configs:/app/configs
+      - ../../src/annotationxmldir:/app/annotationxmldir
+  hlservice.identity:
+    environment:
+      LogConfigPath: /app/configs/log4net.config
+    volumes:
+      - ../../src/Shares/Configs:/app/configs
+      - ../../src/annotationxmldir:/app/annotationxmldir
+  hlservice.gateway:
+    volumes:
+      - ../../src/Shares/Configs:/app/configs

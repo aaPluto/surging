@@ -1,0 +1,17 @@
+version: '3.7'
+
+services: 
+  hlservice.gateway:
+    image: hlservice/gateway:${TAG:-latest}
+    build:
+      context: ../..
+      dockerfile: src/GateWay/Hl.Gateway.WebApi/Dockerfile
+    volumes:
+      - ${LOG_DIR:-/var/logs}/gateway:/app/logs
+    networks:
+      - src_srcp_demo_service_net
+
+networks:
+  src_srcp_demo_service_net: 
+    external:
+      name: hl_surging_service_net

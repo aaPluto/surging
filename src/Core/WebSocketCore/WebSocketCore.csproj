@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <PackageId>Surging.WebSocketCore</PackageId>
+    <Description>.NET CORE version based on websocket-sharp</Description>
+    <Product>WebSocketCore Framework</Product>
+    <AssemblyVersion>1.9.2.0</AssemblyVersion>
+    <FileVersion>1.9.2.0</FileVersion>
+    <Version>1.9.2</Version>
+  </PropertyGroup>
+
+</Project>

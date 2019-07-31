@@ -1,0 +1,56 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: hl
+    component: consul
+  name: consul
+  namespace: hl
+spec:
+  ports:
+  - name: "8400"
+    port: 8400
+    targetPort: 8400
+  - name: "8500"
+    port: 8500
+    targetPort: 8500
+  - name: "8600"
+    port: 8600
+    targetPort: 8600
+    protocol: TCP
+  - name: "8600-udp"
+    port: 8600
+    targetPort: 8600
+    protocol: UDP
+  selector:
+    app: hl
+    component: consul
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: consul
+  namespace: hl
+spec:
+  template:
+    metadata:
+      labels:
+        app: hl
+        component: consul
+    spec:
+      containers:
+        - name: consul
+          image: "consul:latest"
+          args:
+            - "agent"
+            - "-server"
+            - "-bootstrap-expect=1"
+            - "-ui"
+            - "-client=0.0.0.0"
+          ports:
+          - containerPort: 8400
+            name: "port-8400"
+          - containerPort: 8500
+            name: "port-8500"
+          - containerPort: 8600
+            name: "port-8600"

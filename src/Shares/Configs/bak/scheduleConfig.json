@@ -1,0 +1,13 @@
+{
+  "jobs": [
+
+  ],
+  "isClustered": true,
+  "immediateStart": true,
+  "clusterOption": {
+    "dbType": "MySql",
+    "dbName": "SchedulJob",
+    "dbConnectionString": "Server=192.168.31.115;Database=quartz;Uid=root;Port=3306;Pwd=Surging!P4ss",
+    "DataSourceProvider": "MySql"
+  }
+}

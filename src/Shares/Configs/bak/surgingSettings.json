@@ -1,0 +1,65 @@
+﻿{
+  "Surging": {
+    "Ip": "${Surging_Server_Ip}|192.168.31.115",
+    "WatchInterval": 30,
+    "Port": "${Surging_Server_Port}|100",
+    "MappingIp": "${Mapping_Ip}",
+    "MappingPort": "${Mapping_Port}",
+    "Token": "true",
+    "MaxConcurrentRequests": 20,
+    "ExecutionTimeoutInMilliseconds": 30000,
+    "Protocol": "${Protocol}|None", //HttpTcpNone
+    "Libuv": true,
+    "RootPath": "${RootPath}|D:\\userapp",
+	"EnableRouteWatch": false,
+    "Ports": {
+      "HttpPort": "${HttpPort}|8080",
+      "WSPort": "${WSPort}|96"
+    },
+    "RequestCacheEnabled": false,
+    "Environment": "${Environment}|Development",
+    "ForceDisplayStackTrace": "${ForceDisplayStackTrace}|false",
+    "Packages": [
+      {
+        "TypeName": "EnginePartModule",
+        "Using": "${UseEngineParts}|DotNettyModule;Log4netModule;ConsulModule;EventBusRabbitMQModule;CachingModule;AutoMapperModule;KestrelHttpModule;"
+      }
+    ]
+  },
+  "Automapper": {
+    "Assemblies": "SunWin.IfocService.*.IApplication;SunWin.IfocService.*.Domain"
+  },
+  "Swagger": {
+    "Version": "${SwaggerVersion}|v1",
+    "Title": "${SwaggerTitle}|微服务组件",
+    "Description": "${SwaggerDes}|微服务组件描述",
+    "Contact": {
+      "Name": "Liuhongliang",
+      "Url": "https://github.com/liuhll/Surging.Sample",
+      "Email": "1029765111@qq.com"
+    },
+    "Authorization": {
+      "EnableAuthorization": false,
+      "CacheMode": "ddlCache.Redis",
+      "AccessTokenExpire": 100,
+      "AuthorizationRoutePath": "",
+      "AuthorizationServiceKey": ""
+    }
+  },
+  "Logging": {
+    "Debug": {
+      "LogLevel": {
+        "Default": "Debug"
+      }
+    },
+    "Console": {
+      "IncludeScopes": true,
+      "LogLevel": {
+        "Default": "${LogLevel}|Debug"
+      }
+    },
+    "LogLevel": {
+      "Default": "${LogLevel}|Debug"
+    }
+  }
+}

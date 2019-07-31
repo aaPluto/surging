@@ -1,0 +1,8 @@
+version: '3.7'
+
+services: 
+  hlservice.debugtest:
+    environment:
+      LogConfigPath: /app/configs/log4net.config
+    volumes:
+      - ../../src/Shares/Configs:/app/configs

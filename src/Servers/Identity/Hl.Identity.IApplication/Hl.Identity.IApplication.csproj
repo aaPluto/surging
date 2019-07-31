@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+
+ <Import Project="..\..\..\Shares\Props\applicationpackage.props" />
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Hl.Identity.Common\Hl.Identity.Common.csproj" />
+    <ProjectReference Include="..\Hl.Identity.Domain\Hl.Identity.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

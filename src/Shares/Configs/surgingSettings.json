@@ -1,0 +1,76 @@
+﻿{
+  "Surging": {
+    "Ip": "${Surging_Server_Ip}|0.0.0.0",
+    "WatchInterval": 30,
+    "Port": "${Surging_Server_Port}|100",
+    "MappingIp": "${Mapping_Ip}",
+    "MappingPort": "${Mapping_Port}",
+    "Token": "true",
+    "MaxConcurrentRequests": 20,
+    "ExecutionTimeoutInMilliseconds": 30000,
+    "Protocol": "${Protocol}|None", //HttpTcpNone
+    "Libuv": true,
+    "RootPath": "${RootPath}|./userapp",
+    "Ports": {
+      "HttpPort": "${HttpPort}|8080",
+      "WSPort": "${WSPort}|96"
+    },
+    "RequestCacheEnabled": true,
+    "Environment": "${Environment}|Development",
+    "ForceDisplayStackTrace": "${ForceDisplayStackTrace}|false",
+    "Packages": [
+      {
+        "TypeName": "EnginePartModule",
+        "Using": "${UseEngineParts}"
+      }
+    ]
+  },
+  "CacheSection": {
+    "IsEnableRepositoryCache": true,
+    "CacheSectionName": "ddlCache",
+    "CacheType": "Redis"
+  },
+  "Automapper": {
+    "Assemblies": "Hl.*.IApplication;Surging.*.IApplication;Hl.*.Common;Surging.*.Common;"
+  },
+  "dbSetting": {
+    "dbType": "${DbType}|MySql", //MySql SqlServer, Oracle, Postgres
+    "connectionString": "${ConnectionString}|Server=mysql;Database=surging_demo;Uid=root;Port=3306;Pwd=Surging!P4ss"
+  },
+  "Swagger": {
+    "Version": "${SwaggerVersion}|v1",
+    "Title": "${SwaggerTitle}|微服务组件",
+    "Description": "${SwaggerDes}|微服务组件描述",
+    "Contact": {
+      "Name": "Liuhongliang",
+      "Url": "https://github.com/liuhll/Surging.Sample",
+      "Email": "1029765111@qq.com"
+    },
+    "Authorization": {
+      "EnableAuthorization": "${EnableAuthorization}|false",
+      "SecretKey": "${SecretKey}",
+      "AuthorizationRoutePath": "${AuthorizationRoutePath}",
+      "AuthorizationServiceKey": "${AuthorizationServiceKey}"
+    },
+    "AnnotationXmlDir": "/app/annotationxmldir",
+    "DtoXmls": [
+      "Hl.Core.xml"
+    ]
+  },
+  "Logging": {
+    "Debug": {
+      "LogLevel": {
+        "Default": "Debug"
+      }
+    },
+    "Console": {
+      "IncludeScopes": true,
+      "LogLevel": {
+        "Default": "${LogLevel}|Debug"
+      }
+    },
+    "LogLevel": {
+      "Default": "${LogLevel}|Debug"
+    }
+  }
+}

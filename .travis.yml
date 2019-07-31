@@ -1,0 +1,22 @@
+language: csharp
+mono: none
+sudo: required
+dist: xenial
+dotnet: 2.2.300
+services:
+  - docker
+
+env:
+  COMPOSE_VERSION: 1.24.0
+
+before_install:
+  - sudo rm /usr/local/bin/docker-compose
+  - sudo curl -L "https://github.com/docker/compose/releases/download/${COMPOSE_VERSION}/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+  - sudo chmod +x /usr/local/bin/docker-compose
+  - sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+  - sudo chmod +x nupkg/pack.sh
+  - sudo nupkg/pack.sh
+  - sudo chmod +x cli-linux/pack-images.sh
+  - sudo docker login -u ${DOCKER_USER} -p ${DOCKER_PWD}
+script:
+  - sudo cli-linux/pack-images.sh --clear-images

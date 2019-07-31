@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Core\Surging.Core.Dapper\Surging.Core.Dapper.csproj" />
+    <ProjectReference Include="..\..\..\Core\Surging.Core.Domain\Surging.Core.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

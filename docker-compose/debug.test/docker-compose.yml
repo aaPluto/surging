@@ -1,0 +1,21 @@
+version: '3.7'
+
+services: 
+  hlservice.debugtest:
+    image: hlservice/debugtest:${TAG:-latest}
+    build:
+      context: ../..
+      dockerfile: src/Servers/Test1/Surging.Debug.Test1Host/Dockerfile
+      args:
+        host_workdir: src/Servers/Test1/Surging.Debug.Test1Host
+        host_name: Surging.Debug.Test1Host.dll
+        sln_name: Surging.sln
+    volumes:
+      - ${LOG_DIR:-/var/logs}/debugtest:/app/logs
+    networks:
+      - src_srcp_demo_service_net
+
+networks:
+  src_srcp_demo_service_net: 
+    external:
+      name: hl_surging_service_net

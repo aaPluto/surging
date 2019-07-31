@@ -1,0 +1,16 @@
+<Project>
+  <Import Project=".\common.props" />
+  <ItemGroup>
+    <PackageReference Include="Surging.Core.Caching" Version="0.6.0-bate.11" />
+    <PackageReference Include="Surging.Core.CPlatform" Version="0.6.0-bate.11" />
+    <PackageReference Include="Surging.Core.Domain" Version="0.6.0-bate.11" />
+    <PackageReference Include="Surging.Core.Dapper" Version="0.6.0-bate.11" />
+    <PackageReference Include="FluentValidation" Version="8.1.3" />
+  </ItemGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>..\..\..\annotationxmldir\$(AssemblyName).xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>/app/annotationxmldir/$(AssemblyName).xml</DocumentationFile>
+  </PropertyGroup>
+</Project>

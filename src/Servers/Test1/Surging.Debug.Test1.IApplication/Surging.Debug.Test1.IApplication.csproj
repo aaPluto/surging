@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Core\Surging.Core.AutoMapper\Surging.Core.AutoMapper.csproj" />
+    <ProjectReference Include="..\..\..\Core\Surging.Core.System\Surging.Core.System.csproj" />
+    <ProjectReference Include="..\Surging.Debug.Test1.Domain\Surging.Debug.Test1.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,9 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\..\..\Shares\Props\ws.hostpackage.props" />
+  <ItemGroup>   
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Hl.Ws.Application\Hl.Ws.Application.csproj" />
+  </ItemGroup>
+</Project>
